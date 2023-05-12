@@ -5,6 +5,7 @@ import Hero from "@/app/components/Hero";
 import Features from "@/app/components/Features";
 import Productive from "@/app/components/Productive";
 import Testimonials from "@/app/components/Testimonials";
+import EarlyAccess from "@/app/components/EarlyAccess";
 
 export default function Home() {
   useEffect(() => {
@@ -34,6 +35,8 @@ export default function Home() {
       <Productive />
 
       <Testimonials />
+
+      <EarlyAccess />
     </>
   );
 }
