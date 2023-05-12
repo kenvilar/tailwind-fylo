@@ -1,11 +1,9 @@
-import { useEffect } from "react";
+import { useEffect, useRef } from "react";
 
 const Header = () => {
   const menuItems = ["Features", "Testimonials"];
-  const themeToggleDarkIcon = document.getElementById("theme-toggle-dark-icon");
-  const themeToggleLightIcon = document.getElementById(
-    "theme-toggle-light-icon"
-  );
+  let themeToggleDarkIcon: any = useRef(null);
+  let themeToggleLightIcon: any = useRef(null);
 
   useEffect(() => {
     themeToggle();
@@ -19,11 +17,11 @@ const Header = () => {
     ) {
       // Show light icon
       if (themeToggleLightIcon) {
-        themeToggleLightIcon.classList.remove("hidden");
+        themeToggleLightIcon.current.classList.remove("hidden");
       }
     } else {
       if (themeToggleDarkIcon) {
-        themeToggleDarkIcon.classList.remove("hidden");
+        themeToggleDarkIcon.current.classList.remove("hidden");
       }
     }
   };
@@ -31,11 +29,11 @@ const Header = () => {
   const toggleMode = () => {
     // Toggle icon
     if (themeToggleDarkIcon) {
-      themeToggleDarkIcon.classList.toggle("hidden");
+      themeToggleDarkIcon.current.classList.toggle("hidden");
     }
 
     if (themeToggleLightIcon) {
-      themeToggleLightIcon.classList.toggle("hidden");
+      themeToggleLightIcon.current.classList.toggle("hidden");
     }
 
     // If is set in localstorage
@@ -84,6 +82,7 @@ const Header = () => {
           >
             {/*Dark SVG Icon*/}
             <svg
+              ref={themeToggleDarkIcon}
               id="theme-toggle-dark-icon"
               className="w-5 h-5 hidden"
               fill="currentColor"
@@ -94,6 +93,7 @@ const Header = () => {
             </svg>
             {/*Light SVG Icon*/}
             <svg
+              ref={themeToggleLightIcon}
               id="theme-toggle-light-icon"
               className="w-5 h-5 hidden"
               fill="currentColor"
