@@ -3,6 +3,7 @@ import { useEffect } from "react";
 import Header from "@/app/components/Header";
 import Hero from "@/app/components/Hero";
 import Features from "@/app/components/Features";
+import Productive from "@/app/components/Productive";
 
 export default function Home() {
   useEffect(() => {
@@ -28,6 +29,8 @@ export default function Home() {
       <Hero />
 
       <Features />
+
+      <Productive />
     </>
   );
 }
