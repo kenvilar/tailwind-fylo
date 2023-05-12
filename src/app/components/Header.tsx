@@ -28,7 +28,7 @@ const Header = () => {
     }
   };
 
-  function toggleMode() {
+  const toggleMode = () => {
     // Toggle icon
     if (themeToggleDarkIcon || themeToggleLightIcon) {
       themeToggleDarkIcon.classList.toggle("hidden");
@@ -55,7 +55,7 @@ const Header = () => {
         localStorage.setItem("color-theme", "dark");
       }
     }
-  }
+  };
 
   return (
     <>
