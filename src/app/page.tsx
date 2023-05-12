@@ -4,6 +4,7 @@ import Header from "@/app/components/Header";
 import Hero from "@/app/components/Hero";
 import Features from "@/app/components/Features";
 import Productive from "@/app/components/Productive";
+import Testimonials from "@/app/components/Testimonials";
 
 export default function Home() {
   useEffect(() => {
@@ -31,6 +32,8 @@ export default function Home() {
       <Features />
 
       <Productive />
+
+      <Testimonials />
     </>
   );
 }
