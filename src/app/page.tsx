@@ -4,9 +4,7 @@ import Header from "@/app/components/Header";
 
 export default function Home() {
   useEffect(() => {
-    return () => {
-      darkModeSwitcher();
-    };
+    darkModeSwitcher();
   }, []);
 
   const darkModeSwitcher = () => {
