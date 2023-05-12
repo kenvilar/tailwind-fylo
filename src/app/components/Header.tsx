@@ -67,7 +67,11 @@ const Header = () => {
         <div className="flex items-center justify-center space-x-4 top-12 right-10 md:space-x-10 md:absolute">
           {menuItems.map((item, idx) => {
             return (
-              <a key={idx} href="#" className="hover:text-accentCyan">
+              <a
+                key={idx}
+                href={`#${item.toLowerCase()}`}
+                className="hover:text-accentCyan"
+              >
                 {item}
               </a>
             );
