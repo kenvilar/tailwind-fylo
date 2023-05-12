@@ -6,6 +6,7 @@ import Features from "@/app/components/Features";
 import Productive from "@/app/components/Productive";
 import Testimonials from "@/app/components/Testimonials";
 import EarlyAccess from "@/app/components/EarlyAccess";
+import Footer from "@/app/components/Footer";
 
 export default function Home() {
   useEffect(() => {
@@ -37,6 +38,8 @@ export default function Home() {
       <Testimonials />
 
       <EarlyAccess />
+
+      <Footer />
     </>
   );
 }
