@@ -30,8 +30,11 @@ const Header = () => {
 
   const toggleMode = () => {
     // Toggle icon
-    if (themeToggleDarkIcon || themeToggleLightIcon) {
+    if (themeToggleDarkIcon) {
       themeToggleDarkIcon.classList.toggle("hidden");
+    }
+
+    if (themeToggleLightIcon) {
       themeToggleLightIcon.classList.toggle("hidden");
     }
 
