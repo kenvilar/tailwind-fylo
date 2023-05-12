@@ -9,7 +9,11 @@ const Productive = () => {
         <div className="container flex flex-col items-center mx-auto px-6 pt-24 pb-32 md:flex-row md:space-x-16">
           {/*image*/}
           <div className="md:w-1/2">
-            <img src={ProductiveImg.src} alt="productive-img" />
+            <img
+              src={ProductiveImg.src}
+              alt="productive-img"
+              className="mb-10"
+            />
           </div>
 
           {/*content*/}
