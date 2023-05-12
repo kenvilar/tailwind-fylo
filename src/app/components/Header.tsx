@@ -1,5 +1,62 @@
+import { useEffect } from "react";
+
 const Header = () => {
   const menuItems = ["Features", "Testimonials"];
+  const themeToggleBtn = document.getElementById("theme-toggle");
+  const themeToggleDarkIcon = document.getElementById("theme-toggle-dark-icon");
+  const themeToggleLightIcon = document.getElementById(
+    "theme-toggle-light-icon"
+  );
+
+  useEffect(() => {
+    themeToggle();
+  }, []);
+
+  const themeToggle = () => {
+    if (
+      localStorage.getItem("color-theme") === "dark" ||
+      (!("color-theme" in localStorage) &&
+        window.matchMedia("(prefers-color-scheme: dark)").matches)
+    ) {
+      // Show light icon
+      if (themeToggleLightIcon) {
+        themeToggleLightIcon.classList.remove("hidden");
+      }
+    } else {
+      if (themeToggleDarkIcon) {
+        themeToggleDarkIcon.classList.remove("hidden");
+      }
+    }
+  };
+
+  function toggleMode() {
+    // Toggle icon
+    if (themeToggleDarkIcon || themeToggleLightIcon) {
+      themeToggleDarkIcon.classList.toggle("hidden");
+      themeToggleLightIcon.classList.toggle("hidden");
+    }
+
+    // If is set in localstorage
+    if (localStorage.getItem("color-theme")) {
+      // If light, make dark and save in localstorage
+      if (localStorage.getItem("color-theme") === "light") {
+        document.documentElement.classList.add("dark");
+        localStorage.setItem("color-theme", "dark");
+      } else {
+        document.documentElement.classList.remove("dark");
+        localStorage.setItem("color-theme", "light");
+      }
+    } else {
+      // If not in localstorage
+      if (document.documentElement.classList.contains("dark")) {
+        document.documentElement.classList.remove("dark");
+        localStorage.setItem("color-theme", "light");
+      } else {
+        document.documentElement.classList.add("dark");
+        localStorage.setItem("color-theme", "dark");
+      }
+    }
+  }
 
   return (
     <>
@@ -21,6 +78,7 @@ const Header = () => {
             type="button"
             id="theme-toggle"
             className="text-gray-500 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-700 focus:outline-none focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 rounded-lg text-sm p-2"
+            onClick={toggleMode}
           >
             {/*Dark SVG Icon*/}
             <svg
